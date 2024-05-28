@@ -22,7 +22,7 @@ This project uses Node.js, Express, JWT, Bcrypt, Cookie-parser, Nodemailer and S
 # clientside testing tool 
 
 - Postman
-- Thunder Client
+- Thunder Client 
 
 
 # Routes [https://trend-boost-api.onrender.com](https://trend-boost-api.onrender.com).
@@ -42,4 +42,15 @@ The server exposes the following routes:
 -  get - /:id
 -  put - /:id
 -  delete - /:id
+
+
+#testing on postman for register
+
+method -post 
+url - https://trend-boost-api.onrender.com/auth/register 
+json-body - { "userName": "username",
+    "userEmail": "user-real-email",
+    "userPassword": "password",
+    "confirmedPassword" : "password" }
+
 
