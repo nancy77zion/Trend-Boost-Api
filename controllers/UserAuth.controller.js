@@ -85,21 +85,20 @@ const login = async (req, res, next) => {
         process.env.JWT_TOKEN
       ); //using the id of the user to generate web token
 
-      const { userPassword: pass, confirmedPassword: confirm, ...restInfo } = userQuery._previousDataValues;
+      const { userPassword: pass, ...restInfo } = userQuery._previousDataValues;
 
       // Set the access token as a cookie
       res
         .cookie("jwt_access_token", accessToken, {
           httpOnly: true, // Cookie cannot be accessed via client-side scripts
           secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-          sameSite: 'strict', // CSRF protection
+          sameSite: 'None', // CSRF protection
           maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 24 hours (optional)
         })
         .status(200)
         .json({
           result: restInfo,  //send response without password
           success: true,
-          //token: accessToken // token already saved in cookie just for testing
 
         }); 
     })
