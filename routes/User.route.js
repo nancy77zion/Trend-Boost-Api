@@ -5,7 +5,7 @@ const { updateUser, getUser, deleteUser } = require('../controllers/User.control
 
 const routerManager = express.Router();
 
-routerManager.get('/:id', getUser)
+routerManager.get('/:id', verifyToken,getUser)
 routerManager.put('/:id', verifyToken, updateUser)
 routerManager.delete('/:id', verifyToken, deleteUser)
 
